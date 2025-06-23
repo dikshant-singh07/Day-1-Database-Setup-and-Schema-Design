@@ -24,7 +24,7 @@ CREATE TABLE Books (
     FOREIGN KEY (category_id) REFERENCES Categories(category_id)
 ) ENGINE=InnoDB;
 
--- Book_Author (Many-to-Many)
+-- Book_Author
 CREATE TABLE Book_Author (
     book_id INT,
     author_id INT,
@@ -32,7 +32,6 @@ CREATE TABLE Book_Author (
     FOREIGN KEY (book_id) REFERENCES Books(book_id) ON DELETE CASCADE,
     FOREIGN KEY (author_id) REFERENCES Authors(author_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
--- Check your MySQL version
 
 -- Members
 CREATE TABLE Members (
@@ -42,7 +41,7 @@ CREATE TABLE Members (
     join_date DATE
 ) ENGINE=InnoDB;
 
--- Loans
+-- Loans(lending and returning of books)
 CREATE TABLE Loans (
     loan_id INT AUTO_INCREMENT PRIMARY KEY,
     book_id INT NOT NULL,
